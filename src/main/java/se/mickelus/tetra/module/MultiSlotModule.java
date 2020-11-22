@@ -64,14 +64,14 @@ public class MultiSlotModule extends ItemModuleMajor {
     @Override
     protected ModuleModel[] getImprovementModels(ItemStack itemStack, int tint) {
         return Arrays.stream(super.getImprovementModels(itemStack, tint))
-                .map(model -> new ModuleModel(model.type, new ResourceLocation(TetraMod.MOD_ID, model.location.getPath() + slotSuffix), model.tint))
+                .map(model -> new ModuleModel(model.type, new ResourceLocation(model.location.getNamespace(), model.location.getPath() + slotSuffix), model.tint))
                 .toArray(ModuleModel[]::new);
     }
 
     @Override
     public ModuleModel[] getModels(ItemStack itemStack) {
         return Arrays.stream(super.getModels(itemStack))
-                .map(model -> new ModuleModel(model.type, new ResourceLocation(TetraMod.MOD_ID, model.location.getPath() + slotSuffix), model.tint))
+                .map(model -> new ModuleModel(model.type, new ResourceLocation(model.location.getNamespace(), model.location.getPath() + slotSuffix), model.tint))
                 .toArray(ModuleModel[]::new);
     }
 }
